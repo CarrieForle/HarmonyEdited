@@ -8,22 +8,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type LibraryListView}">
-                    <Border Background="{DynamicResource PanelBackgroundBrush}">
-                        <Border.Style>
-                            <Style TargetType="Border">
-                                <Setter Property="BorderThickness" Value="20,20,20,20" />
-                                <Setter Property="BorderBrush" Value="{DynamicResource PanelSeparatorBrush}" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Settings ShowPanelSeparators}" Value="False">
-                                        <Setter Property="BorderBrush" Value="Transparent" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Border.Style>
-                        <GamesGridView x:Name="PART_ListGames"
+                    <GamesGridView Background="{DynamicResource PanelBackgroundBrush}"
+                                   x:Name="PART_ListGames"
                                    d:DesignWidth="1280" d:DesignHeight="960"
                                    d:DataContext="{x:Static DesignMainViewModel.DesignIntance}"/>
-                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
