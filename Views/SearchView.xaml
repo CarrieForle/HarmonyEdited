@@ -225,7 +225,7 @@
                                     <!--<Border BorderThickness="0,1,0,0" BorderBrush="{DynamicResource GlyphBrush}"
                                             Opacity="{DynamicResource GlyphColorObscureOpacity}"/>-->
                                     <Border Padding="{TemplateBinding Padding}" Background="Transparent"
-                                            BorderThickness="0,1,0,0" BorderBrush="{DynamicResource PanelSeparatorBrush}">
+                                            BorderThickness="0">
                                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Margin="3,0,0,0" />
