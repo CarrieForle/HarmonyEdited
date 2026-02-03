@@ -2,15 +2,31 @@
 
 Modified Harmony to suit my preference that isn't possible to edit with [ThemeModifier](https://playnite.link/addons.html#playnite-thememodifier-plugin). The following modifications were made:
 - Removed borders between panels
-- Customizable background fadeout point (Detail View)
+- Narrowed sidebar
+- Grid View: Added a button to switch to details view (requires [ThemeExtras](https://playnite.link/addons.html#felixkmh_Extras_Plugin))
+- Customizable background fadeout point (detail view)
 
 ### Modified
 
-<img width="1920" height="1016" alt="afters" src="https://github.com/user-attachments/assets/eb00bbda-5235-4d26-a0db-8523487495b4" />
+<img width="1920" height="1020" alt="Screenshot of Harmony after modification" src="https://github.com/user-attachments/assets/f363b5e1-493b-4a46-8f34-9f500f68288e" />
 
 ### Original
 
-<img width="1920" height="1016" alt="befores" src="https://github.com/user-attachments/assets/1731b35f-bbb1-4125-997a-a08d7692f95c" />
+<img width="1920" height="1020" alt="Screenshot of original Harmony" src="https://github.com/user-attachments/assets/640bde6e-192f-4d32-9b39-2f3ad124d153" />
+
+## Download
+
+Check the [Release](https://github.com/CarrieForle/HarmonyEdited/releases) page.
+
+Since it's just a minor change of the original theme, it's not available on Playnite database. This means you have to manually update this theme.
+
+This theme can be installed alongside the original Harmony. You do not have to remove it.
+
+### Version
+
+The version will match upstream Harmony with a patch version '1' (for example: version 2.73.1 is modified from 2.73 version of the original Harmony).
+
+Because Playnite packaging quirk, upon installing the theme, the patch version number will be gone (i.e., you will not see '.1' after '2.73').
 
 # Original README
 
