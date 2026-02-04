@@ -1,0 +1,13 @@
+name: pacakge theme to .pect file
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  setup-dotnet:
+    runs-on: windows-latest
+    steps:
+      # - uses: actions/setup-dotnet@v5.1.0
+      - uses: actions/checkout@v6.0.2
+        with:
+          repository: JosefNemec/Playnite
+          sparse-checkout: source/Tools/Playnite.Toolbox
+          sparse-checkout-cone-mode: true
