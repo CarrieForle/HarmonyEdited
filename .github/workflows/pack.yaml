@@ -1,0 +1,51 @@
+name: package theme to .pthm file
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Build for release
+        type: boolean
+        required: false
+        default: false
+  push:
+    tags: 'v**'
+jobs:
+  package-theme:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout my repo
+        uses: actions/checkout@v6
+      - name: Download Playnite
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: JosefNemec/Playnite
+          latest: true
+          fileName: '*.7z'
+          tarBall: false
+          zipBall: false
+      - name: Decompress Playnite
+        run: 7z x -bd -oplaynite *.7z
+      - name: Packing theme with toolbox
+        run: ./Toolbox.exe pack ../source/ ../output
+        working-directory: playnite
+      - uses: actions/upload-artifact@v6
+        with:
+          path: output/*.pthm
+
+  release:
+    runs-on: ubuntu-latest
+    needs: package-theme
+    if: ${{ github.event_name == 'push' || inputs.release && github.ref_type == 'tag' }}
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/download-artifact@v7
+    - name: Release on GitHub
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: >-
+          gh release create ${{ github.ref_name }}
+          --repo ${{ github.repository }}
+          --title ${{ github.ref_name }}
+          --generate-notes
+          *.pthm
