@@ -15,6 +15,7 @@ jobs:
           msbuild-architecture: x64
       - run: >- 
           msbuild -m -r 
+          -p:SolutionDir=source/
           -p:RestorePackagesConfig=true 
           -p:Configuration=Release 
           -p:Platform=x64 
