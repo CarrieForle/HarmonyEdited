@@ -15,3 +15,4 @@ jobs:
         with:
           msbuild-architecture: x64
       - run: msbuild -p:Configuration=Release -p:Platform=x64
+        working-directory: source/Tools/Playnite.ToolBox
