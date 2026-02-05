@@ -11,3 +11,7 @@ jobs:
           repository: JosefNemec/Playnite
           sparse-checkout: source/Tools/Playnite.Toolbox
           sparse-checkout-cone-mode: true
+      - uses: microsoft/setup-msbuild@v2
+        with:
+          msbuild-architecture: x64
+      - run: msbuild -p:Configuration=Release -p:Platform=x64
