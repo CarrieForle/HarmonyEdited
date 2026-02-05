@@ -16,8 +16,7 @@ jobs:
       - run: >- 
           msbuild -m -r 
           -p:RestorePackagesConfig=true 
-          -p:SolutionDir=source/Playnite.sln 
+          -p:SolutionDir=source
           -p:Configuration=Release 
           -p:Platform=x64 
           source/Tools/Playnite.ToolBox/Playnite.Toolbox.csproj
-        working-directory: 
