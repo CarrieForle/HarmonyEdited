@@ -13,5 +13,11 @@ jobs:
       - uses: microsoft/setup-msbuild@v2
         with:
           msbuild-architecture: x64
-      - run: msbuild -m -r -p:RestorePackagesConfig=true -p:SolutionDir=source/Playnite.sln -p:Configuration=Release -p:Platform=x64 Playnite.Toolbox.csproj
-        working-directory: source/Tools/Playnite.ToolBox
+      - run: >- 
+          msbuild -m -r 
+          -p:RestorePackagesConfig=true 
+          -p:SolutionDir=source/Playnite.sln 
+          -p:Configuration=Release 
+          -p:Platform=x64 
+          source/Tools/Playnite.ToolBox/Playnite.Toolbox.csproj
+        working-directory: 
