@@ -5,7 +5,6 @@ jobs:
   setup-dotnet:
     runs-on: windows-latest
     steps:
-      # - uses: actions/setup-dotnet@v5.1.0
       - uses: actions/checkout@v6.0.2
         with:
           repository: JosefNemec/Playnite
@@ -14,5 +13,5 @@ jobs:
       - uses: microsoft/setup-msbuild@v2
         with:
           msbuild-architecture: x64
-      - run: msbuild -p:Configuration=Release -p:Platform=x64
+      - run: msbuild Playnite.Toolbox.csproj -p:Configuration=Release -p:Platform=x64
         working-directory: source/Tools/Playnite.ToolBox
