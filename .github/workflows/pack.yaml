@@ -9,9 +9,15 @@ on:
         default: false
   push:
     tags: '[0-9].[0-9]*'
+permissions:
+  id-token: write
+  contents: read
+  attestations: write
 jobs:
   package-theme:
     runs-on: windows-latest
+    outputs:
+      attestation-url: ${{ steps.attest.outputs.attestation-url }}
     steps:
       - name: Checkout my repo
         uses: actions/checkout@v6
@@ -28,7 +34,12 @@ jobs:
       - name: Packing theme with toolbox
         run: ./Toolbox.exe pack ../source/ ../output
         working-directory: playnite
-      - uses: actions/upload-artifact@v6
+      - name: Generate artifact attestation
+        id: attest
+        uses: actions/attest@v4
+        with:
+          subject-path: output/*.pthm
+      - uses: actions/upload-artifact@v7
         with:
           path: output/*.pthm
 
@@ -39,7 +50,7 @@ jobs:
     permissions:
       contents: write
     steps:
-    - uses: actions/download-artifact@v7
+    - uses: actions/download-artifact@v8
     - name: Release on GitHub
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,5 +58,6 @@ jobs:
           gh release create ${{ github.ref_name }}
           --repo ${{ github.repository }}
           --title v${{ github.ref_name }}
+          --notes "Build attested at ${{ needs.package-theme.outputs.attestation-url }}"
           --generate-notes
           *.pthm
