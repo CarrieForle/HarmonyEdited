@@ -610,3 +610,9 @@ Packages:
       - 'Details View: Make icons width the same as the height to prevent misalignments'
       - 'Details ViewItemTemplate: Fix game icons being blurry in library list'
       - 'Grid View: Changed game names to medium weight'
+  - Version: 2.74
+    RequiredApiVersion: 2.8.0
+    ReleaseDate: 2026-04-30
+    PackageUrl: https://github.com/darklinkpower/Harmony/releases/download/2.74/Harmony_d49ef7bc-49de-4fd0-9a67-bd1f26b56047_2_74.pthm
+    Changelog:
+      - 'Added: Support for new Steam Game Actions button from the Steam Shorcuts extension'
